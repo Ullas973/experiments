@@ -1,0 +1,17 @@
+[
+  {
+    "topic": "Linear Regression Basics",
+    "description": "Fit a linear model on synthetic data and interpret coefficients.",
+    "code": "from sklearn.datasets import make_regression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error\n\nX, y = make_regression(n_samples=300, n_features=4, noise=12, random_state=42)\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\npreds = model.predict(X_test)\nprint('MSE:', round(mean_squared_error(y_test, preds), 3))\nprint('Coefficients:', model.coef_)"
+  },
+  {
+    "topic": "Classification with Logistic Regression",
+    "description": "Train a binary classifier and evaluate with accuracy.",
+    "code": "from sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.metrics import accuracy_score\n\nX, y = make_classification(n_samples=400, n_features=8, n_informative=5, random_state=42)\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)\nmodel = LogisticRegression(max_iter=500)\nmodel.fit(X_train, y_train)\npreds = model.predict(X_test)\nprint('Accuracy:', round(accuracy_score(y_test, preds), 3))"
+  },
+  {
+    "topic": "KMeans Clustering Demo",
+    "description": "Cluster unlabeled data and inspect cluster centers.",
+    "code": "from sklearn.datasets import make_blobs\nfrom sklearn.cluster import KMeans\n\nX, _ = make_blobs(n_samples=300, centers=3, n_features=2, random_state=42)\nmodel = KMeans(n_clusters=3, n_init=10, random_state=42)\nlabels = model.fit_predict(X)\nprint('Cluster centers:\\n', model.cluster_centers_)\nprint('First 10 labels:', labels[:10])"
+  }
+]
