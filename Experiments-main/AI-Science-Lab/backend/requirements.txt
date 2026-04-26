@@ -6,3 +6,10 @@ openai
 requests
 elevenlabs
 Pillow
+streamlit
+sentence-transformers
+faiss-cpu
+pdfplumber
+pymupdf
+numpy
+scikit-learn

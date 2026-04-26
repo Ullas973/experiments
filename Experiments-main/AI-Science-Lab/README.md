@@ -12,6 +12,9 @@ This project implements a strict Retrieval-Augmented Generation (RAG) workflow f
 - Generate labs and quizzes from retrieved context
 - Show explicit source snippets
 - Provide pre-built labs from `data/labs.json`
+- Supports signup/login with SQLite user roles (`student`, `admin`)
+- Tracks user activity (queries, labs, quizzes)
+- Provides admin and student dashboards
 
 ## Project Structure
 
@@ -23,6 +26,9 @@ AI-Science-Lab/
     vector_db.py
     lab_generator.py
     quiz_generator.py
+    db.py
+    auth.py
+    progress.py
     requirements.txt
   frontend/
     app.py
@@ -48,6 +54,11 @@ pip install -r backend/requirements.txt
   $env:OPENAI_API_KEY="your_api_key_here"
   ```
 
+5. Default admin login (created automatically on first run):
+
+- Username: `admin`
+- Password: `admin123`
+
 ## Run
 
 From `AI-Science-Lab` folder:
@@ -65,6 +76,20 @@ streamlit run frontend/app.py
    - **Generate Lab** for a context-grounded coding lab
    - **Generate Quiz** for 5 MCQs + 2 short questions
    - **Show Pre-built Labs** to browse local labs from JSON
+
+## Authentication and Dashboards
+
+- Users can sign up as `student` or `admin`
+- Students see:
+  - their past queries
+  - labs generated
+  - quizzes attempted
+- Admins see:
+  - total users
+  - total queries
+  - total labs generated
+  - total quizzes attempted
+  - per-user activity summary table
 
 ## Important RAG Rule Implemented
 
