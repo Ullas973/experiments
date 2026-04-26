@@ -1,8 +1,8 @@
-streamlit
-sentence-transformers
-faiss-cpu
-pdfplumber
-pymupdf
+fastapi
+uvicorn
+python-dotenv
+pandas
 openai
-numpy
-scikit-learn
+requests
+elevenlabs
+Pillow
